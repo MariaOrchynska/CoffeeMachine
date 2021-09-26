@@ -25,6 +25,7 @@ start();
             } else if (str.equals("second")) {
                 secondCoffeeMachine.menu();
             } else if (str.equals("third")) {
+                thirdCoffeeMachine.menu();
 
             }
         }

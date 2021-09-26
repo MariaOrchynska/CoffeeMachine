@@ -9,12 +9,13 @@ public class SecondCoffeeMachine extends CoffeeMachine{
 
     @Override
     public void menu() {
-        System.out.println("second");
+show();
     }
 
     @Override
     public void show() {
-
+        System.out.println("The value of coffee in that SecondCoffeeMachine: " + this.getCoffeeTrunk());
+        System.out.println("The value of water in that SecondCoffeeMachine: " + this.getWaterTrunk());
     }
 
     @Override
