@@ -50,21 +50,26 @@ public class FirstCoffeeMachine extends CoffeeMachine {
     public void americano() {
         System.out.println("Do you want to add sugar:  \n 1) Yes \n 2) No");
         String str2 = sc.next();
-        int americanoCoffeeAmount=2;
-        int americanoWaterAmount=6;
-        int sugar=3;
+        int americanoCoffeeAmount = 2;
+        int americanoWaterAmount = 6;
+        int sugar = 3;
         if (str2.equals("1")) {
-            int americano = ((getCoffeeTrunk() -americanoCoffeeAmount )+(getWaterTrunk()-americanoWaterAmount))+ sugar;
-            System.out.println("Your americano is done with amount of liquid : " + americano+ "ml");
+            int americano = ((getCoffeeTrunk() - americanoCoffeeAmount) + (getWaterTrunk() - americanoWaterAmount)) + sugar;
+            System.out.println("Your americano is done with amount of liquid : " + americano + "ml");
 
         } else if (str2.equals("2")) {
-            int americano = (getCoffeeTrunk() -americanoCoffeeAmount )+(getWaterTrunk()-americanoWaterAmount);
-            System.out.println("Your americano is done with amount of liquid : " + americano+ "ml");
+            int americano = (getCoffeeTrunk() - americanoCoffeeAmount) + (getWaterTrunk() - americanoWaterAmount);
+            System.out.println("Your americano is done with amount of liquid : " + americano + "ml");
+
+        } else if (getWaterTrunk() < americanoWaterAmount) {
+            System.out.println("You need to fill in the trunk with water. ");
+        } else if (getCoffeeTrunk() < americanoCoffeeAmount) {
+            System.out.println("You need to fill in the trunk with coffee. ");
+        }else if( (getWaterTrunk() < americanoWaterAmount)^(getCoffeeTrunk() < americanoCoffeeAmount)){
+            System.out.println("You need to fill in the trunk with water and coffee.");
 
         }
-
     }
-
     @Override
     public void espresso() {
         System.out.println("Do you want to add sugar:  \n 1) Yes \n 2) No");
