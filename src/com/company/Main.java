@@ -13,7 +13,7 @@ start();
         Scanner sc = new Scanner(System.in);
 
         FirstCoffeeMachine firstCoffeeMachine = new FirstCoffeeMachine(5, 8);
-        SecondCoffeeMachine secondCoffeeMachine = new SecondCoffeeMachine(3, 7);
+        SecondCoffeeMachine secondCoffeeMachine = new SecondCoffeeMachine(6, 7);
         ThirdCoffeeMachine thirdCoffeeMachine = new ThirdCoffeeMachine(4, 7);
         System.out.println("choose a coffeeMachine");
 

@@ -28,13 +28,17 @@ public class FirstCoffeeMachine extends CoffeeMachine {
                 break;
             case ("4"):
                 doubleEspresso();
+                break;
             case ("5"):
                 fillWithWater();
-            case("6"):
+                break;
+            case ("6"):
                 fillWithCoffee();
-            case("7"):
-                    info();
-            case("8"):
+                break;
+            case ("7"):
+                info();
+                break;
+            case ("8"):
                 switchOff();
         }
     }
@@ -65,23 +69,34 @@ public class FirstCoffeeMachine extends CoffeeMachine {
             System.out.println("You need to fill in the trunk with water. ");
         } else if (getCoffeeTrunk() < americanoCoffeeAmount) {
             System.out.println("You need to fill in the trunk with coffee. ");
-        }else if( (getWaterTrunk() < americanoWaterAmount)^(getCoffeeTrunk() < americanoCoffeeAmount)){
+        } else if ((getWaterTrunk() < americanoWaterAmount) ^ (getCoffeeTrunk() < americanoCoffeeAmount)) {
             System.out.println("You need to fill in the trunk with water and coffee.");
 
         }
     }
+
     @Override
     public void espresso() {
         System.out.println("Do you want to add sugar:  \n 1) Yes \n 2) No");
         String str2 = sc.next();
-        if (str2.equals("1")) {
-            int espresso = (getWaterTrunk() - 6) + (getCoffeeTrunk() - 4) + 3;
-            System.out.println("Your americano is done with amount of liquid : " + espresso+ "ml");
+        int espressoWaterAmount = 6;
+        int espressoCoffeeAmount = 4;
+        int sugar = 3;
 
-        } else if (str2.equals("2")) {
-            int espresso = (getWaterTrunk() - 6) + (getCoffeeTrunk() - 4);
+        if (str2.equals("1")) {
+            int espresso = (getWaterTrunk() - espressoWaterAmount) + (getCoffeeTrunk() - espressoCoffeeAmount) + sugar;
             System.out.println("Your americano is done with amount of liquid : " + espresso + "ml");
 
+        } else if (str2.equals("2")) {
+            int espresso = (getWaterTrunk() - espressoWaterAmount) + (getCoffeeTrunk() - espressoCoffeeAmount);
+            System.out.println("Your americano is done with amount of liquid : " + espresso + "ml");
+
+        } else if (getWaterTrunk() < espressoWaterAmount) {
+            System.out.println("You need to fill in the trunk with water. ");
+        } else if (getCoffeeTrunk() < espressoCoffeeAmount) {
+            System.out.println("You need to fill in the trunk with coffee. ");
+        } else if ((getWaterTrunk() < espressoWaterAmount) ^ (getCoffeeTrunk() < espressoCoffeeAmount)) {
+            System.out.println("You need to fill in the trunk with water and coffee.");
         }
     }
 
@@ -89,48 +104,58 @@ public class FirstCoffeeMachine extends CoffeeMachine {
     public void doubleEspresso() {
         System.out.println("Do you want to add sugar:  \n 1) Yes \n 2) No");
         String str2 = sc.next();
+        int doubleEspressoCoffeeAmount = 6;
+        int doubleEspressoWaterAmount = 8;
+        int sugar = 3;
         if (str2.equals("1")) {
-            int doubleEspresso = (getWaterTrunk() - 6) + (getCoffeeTrunk() - 8) + 3;
-            System.out.println("Your americano is done with amount of liquid : " +  doubleEspresso + "ml");
+            int doubleEspresso = (getWaterTrunk() - doubleEspressoWaterAmount) + (getCoffeeTrunk() - doubleEspressoCoffeeAmount) + sugar;
+            System.out.println("Your americano is done with amount of liquid : " + doubleEspresso + "ml");
 
         } else if (str2.equals("2")) {
-            int doubleEspresso = (getWaterTrunk() - 6) + (getCoffeeTrunk() - 8);
+            int doubleEspresso = (getWaterTrunk() - doubleEspressoWaterAmount) + (getCoffeeTrunk() - doubleEspressoCoffeeAmount);
             System.out.println("Your americano is done with amount of liquid : " + doubleEspresso + "ml");
+
+        } else if (getWaterTrunk() < doubleEspressoWaterAmount) {
+            System.out.println("You need to fill in the trunk with water. ");
+        } else if (getCoffeeTrunk() < doubleEspressoCoffeeAmount) {
+            System.out.println("You need to fill in the trunk with coffee. ");
+        } else if ((getWaterTrunk() < doubleEspressoWaterAmount) ^ (getCoffeeTrunk() < doubleEspressoCoffeeAmount)) {
+            System.out.println("You need to fill in the trunk with water and coffee.");
 
         }
     }
 
     @Override
     public void fillWithWater() {
-       if (getWaterTrunk()==8){
-           System.out.println("trunk is full : " + getWaterTrunk() + " ml of water");
-       }else if(getWaterTrunk()<8) {
-           System.out.println("Adding the water :");
+        if (getWaterTrunk() == 8) {
+            System.out.println("trunk is full : " + getWaterTrunk() + " ml of water");
+        } else if (getWaterTrunk() < 8) {
+            System.out.println("Adding the water :");
 
-           for (int i = 8; i > getWaterTrunk(); i++) {
-               System.out.println("Adding the water :" + i +" ml of water");
+            for (int i = 8; i > getWaterTrunk(); i++) {
+                System.out.println("Adding the water :" + i + " ml of water");
 
-           }
-       }
+            }
         }
+    }
 
     @Override
     public void fillWithCoffee() {
-        if (getCoffeeTrunk()==5){
+        if (getCoffeeTrunk() == 5) {
             System.out.println("trunk is full : " + getCoffeeTrunk() + " grm of coffee");
-        }else if(getWaterTrunk()<5) {
+        } else if (getWaterTrunk() < 5) {
             System.out.println("Adding the coffee :");
 
             for (int i = 5; i > getCoffeeTrunk(); i++) {
                 System.out.println("Adding the coffee :" + i + " grm of coffee");
             }
-            }
+        }
     }
 
     @Override
     public void info() {
-        System.out.println("The capacity of the waterTrunk is "+getWaterTrunk() + " ml");
-        System.out.println("The capacity of the CoffeeTrunk is "+getCoffeeTrunk() + " grm");
+        System.out.println("The capacity of the waterTrunk is " + getWaterTrunk() + " ml");
+        System.out.println("The capacity of the CoffeeTrunk is " + getCoffeeTrunk() + " grm");
 
     }
 

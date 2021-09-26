@@ -44,7 +44,8 @@ show();
 
     @Override
     public void info() {
-
+        System.out.println("The capacity of the waterTrunk is " + getWaterTrunk() + " ml");
+        System.out.println("The capacity of the CoffeeTrunk is " + getCoffeeTrunk() + " grm");
     }
 
     @Override
